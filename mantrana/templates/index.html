@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% block pagetitle %} Home {% endblock pagetitle %}
+{% load static %}
+{% block index %}
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card text-bg-dark p-0">
+                <img src="{% static 'img/hero.jpg' %}" height="400px" style="opacity: 30%;" class="card-img" alt="...">
+
+                <div class="card-img-overlay ">
+                    <h5 class="card-title text-light text-center">Card title</h5>
+                    <p class="card-text text-light text-center">This is a wider card with supporting text below as a
+                        natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                    <center>
+                        <div class="col-sm-4 justify-content-center">
+                            <form class="d-flex " role="search">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-light" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </center>
+                    <p class="card-text text-light text-center"><small>Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container-fluid bg-primary p-2">
+        <div class="row g-2">
+            {% for s in services %}
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-header p-1"><img src="{{s.banner.url}}" height="100px" alt="" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <p>{{s.about | slice:100}}</p>
+                    </div>
+                    <div class="card-footer"></div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container-fluid p-2">
+        <div class="row justify-content-center g-2">
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body">
+                        <center>
+                            <h3 class="text-primary"><i class="bi bi-shield-fill-check"></i></h3>PRIVATE & CONFIDENTIAL
+                        </center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body">
+                        <center>
+                            <h3 class="text-primary"><i class="bi bi-incognito"></i> </h3> ANONYMOUS DISCUSSIONS
+                        </center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body">
+                        <center>
+                            <h3 class="text-primary"><i class="bi bi-clock-fill"></i> </h3> 24X7 ROUND THE CLOCK SUPPORT
+                        </center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card">
+                    <div class="card-body">
+                        <center>
+                            <h3 class="text-primary"><i class="bi bi-laptop-fill"></i></h3> CONDUCTED OVER 25 LAKHS+
+                            SESSIONS
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <h2 class="text-center bg-primary text-light p-4">How mymantrana can help you ?</h2>
+    <div class="container-fluid">
+        <div class="row g-2">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        Connect with your Expert
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        Connect with your Expert
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        Connect with your Expert
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<h2 class="text-center bg-primary text-light p-4">Our Counsellors</h2>
+<section>
+    <div class="container-fluid p-2">
+        <div class="row g-2">
+            {% for c in counsellors %}
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-header"><img src="{{c.profile_pic.url}}" height="200px" alt="" class="card-img"></div>
+                    <div class="card-body">{{c.experties}}</div>
+                    <div class="card-footer">{{c.joined_on}}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock index %}
